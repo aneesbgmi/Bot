@@ -17,25 +17,11 @@ Muhammed = Client(
 )
 
 
-@Muhammed.on_message(filters.command("start")) 
+@Muhammed.on_message(filters.message=="text"&&filters.group) 
 async def start_message(bot, message)
-    button = [[
-      InlineKeyboardButton("Mo Tech YT", callback_data="start")
-      ]]
-    await messages.reply_photo(
-        photo=random.choice(PHOTO_LINK),
-        text="Hello {message.from_user.mention}   Bro Sugamano",
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
+    await message.delete()
+   
 
-
-
-@Muhammad.on_callback_query()
-async def callback(bot, msg: CallbackQuery)
-    if msg.data == "start":
-        await message.message.edit(
-            text=" hello {msg.from_user.mention}  Start Text"
-        )
 
 
 
